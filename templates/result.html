@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <style>
+        h5 { padding: 0; margin: 0; }
+    </style>
+</head>
+
+<body style="background-color: #f6f4e3">
+<h3><a href="/">Back</a></h3>
+    {% for obj in data %}
+    <div
+        style="position:absolute;
+        left: {{ obj['x'] }}px;
+        top: {{ obj['y'] }}px;
+        border: 3px solid black;
+        height: {{ obj['h'] }}px;
+        width: {{ obj['w'] }}px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    ">
+        <h4>
+        {% if obj['type'] == 'text' %}
+            text
+        {% endif %}
+
+        {% if obj['type'] == 'cross_box' %}
+            cross_box
+        {% endif %}
+
+        {% if obj['type'] == 'circle' %}
+            circle
+        {% endif %}
+
+        {% if obj['type'] == 'square_text' %}
+            square_text
+        {% endif %}
+
+        {% if obj['type'] == 'box' %}
+            box
+        {% endif %}
+        </h4>
+    </div>
+    {% endfor %}
+
+    <div>
+        <img src="/static/res.jpg" style="float:right;">
+    </div>
+</body>
+</html>
